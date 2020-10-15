@@ -48,4 +48,8 @@ export class DatabaseService {
     let url="/movies/actors/"+mid+"/"+aid;
     return this.http.post(url,data,httpOptions);
   }
+  getActorAfter(){
+    let url="/actorsafter/"+2000;
+    return this.http.get(url);
+  }
 }

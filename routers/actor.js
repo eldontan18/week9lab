@@ -93,5 +93,14 @@ module.exports = {
                 });
             })
         });
+    },
+    getActorsAfter: function(req,res){
+        let year = req.params.year;
+        Actor.find(
+            {bYear: {$gte: year}} ,function (err, actors) {
+                if (err) return res.status(400).json(err);
+                if (!actors) return res.status(404).json();
+            res.json(actors);
+        });
     }
 };

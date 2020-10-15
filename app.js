@@ -26,6 +26,7 @@ app.post('/actors/movies/:id', actors.addMovie);
 app.delete('/actors/:id', actors.deleteOne);
 app.delete('/actorsnmovies/:id',actors.deleteActorMovies);
 app.put('/actors/:aId/:mId',actors.removeMovie);
+app.get('/actorsafter/:year', actors.getActorsAfter);
 //Movie RESTFul  endpoints
 app.get('/movies', movies.getAll);
 app.post('/movies', movies.createOne);

@@ -9,6 +9,7 @@ import { DatabaseService } from '../database.service';
 export class ActorComponent implements OnInit {
   
   actorsDB: any[] = [];
+  actorsAfter: any[]=[];
   section = 1;
   fullName: string = "";
   bYear: number = 0;
@@ -45,9 +46,15 @@ export class ActorComponent implements OnInit {
       this.onGetActors();
     });
   }
+  onGetActorsAfter(){
+    this.dbService.getActorAfter().subscribe((data: any[]) => {
+      this.actorsAfter = data;
+    });
+  }
   // This lifecycle callback function will be invoked with the component get initialized by Angular.
   ngOnInit() {
     this.onGetActors();
+    this.onGetActorsAfter();
   }
   changeSection(sectionId) {
     this.section = sectionId;
